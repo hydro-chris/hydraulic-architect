@@ -27,8 +27,8 @@ df = load_data()
 
 # 3. Sidebar: The Selection Wizard
 with st.sidebar:
-    st.image("images/main_bg.jpg", use_column_width=True) # Your corrected logo
-    st.title("Selection Wizard")
+   # Try a simpler path if the folder is missing, or comment it out to test
+# st.image("main_bg.jpg", use_column_width=True)
     
     if st.button("🔄 NEW SEARCH / RESET"):
         st.rerun()
