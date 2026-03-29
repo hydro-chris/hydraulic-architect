@@ -27,8 +27,7 @@ df = load_data()
 
 # 3. Sidebar: The Selection Wizard
 with st.sidebar:
-   # Try a simpler path if the folder is missing, or comment it out to test
-# st.image("main_bg.jpg", use_column_width=True)
+st.sidebar.image("main_bg.jpg", use_column_width=True)
     
     if st.button("🔄 NEW SEARCH / RESET"):
         st.rerun()
