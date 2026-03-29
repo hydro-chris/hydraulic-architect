@@ -103,9 +103,19 @@ col1, col2 = st.columns([1, 2])
 with col1:
     st.header("Results")
     if 'match_data' in locals():
-        st.dataframe(match_data.drop(["CATEGORY", "SERIES"]), height=500)
+        st.subheader(f"Series: {match_data['SERIES']}")
+        st.markdown("---")
+        
+        # This loop pulls each row and displays it: Label: Value
+        # We drop the Category and Series so they don't repeat
+        specs = match_data.drop(["CATEGORY", "SERIES"])
+        
+        for label, value in specs.items():
+            # This creates a bold label and the value right next to it
+            st.markdown(f"**{label}:** &nbsp;&nbsp; {value}")
+            
     else:
-        st.write("Complete the wizard on the left to see specs.")
+        st.info("👈 Use the Wizard in the sidebar to begin.")
 
 with col2:
     st.header("Measurement Guides")
