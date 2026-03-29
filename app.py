@@ -9,22 +9,30 @@ st.set_page_config(page_title="Hydraulic Architect", layout="wide", initial_side
 # Custom CSS for a Full-Page Background
 st.markdown(f"""
     <style>
+    /* 1. The Main Background */
     .stApp {{
         background-image: url("https://raw.githubusercontent.com/hydro-chris/hydraulic-architect/main/main_bg.png");
         background-attachment: fixed;
         background-size: cover;
     }}
     
-    /* This makes the "Results" and "Guides" area slightly see-through so you can see the background */
+    /* 2. Remove the heavy grey boxes - make them faint and clear */
     [data-testid="stVerticalBlock"] {{
-        background-color: rgba(30, 30, 38, 0.7); 
-        padding: 20px;
-        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.2); /* Very faint dark tint */
+        padding: 10px;
     }}
-    
-    /* Keep the sidebar solid so it's readable */
+
+    /* 3. Force Table Data to be visible (White and Bold) */
+    .stTable td, .stTable th {{
+        color: white !important;
+        font-weight: bold !important;
+        background-color: rgba(255, 255, 255, 0.05) !important; /* Tiny hint of highlight */
+    }}
+
+    /* 4. Keep Sidebar solid for usability */
     [data-testid="stSidebar"] {{
         background-color: #1e1e26;
+        border-right: 1px solid #333;
     }}
     </style>
     """, unsafe_allow_html=True)
