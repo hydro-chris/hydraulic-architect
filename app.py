@@ -27,7 +27,7 @@ df = load_data()
 
 # 3. Sidebar: The Selection Wizard
 with st.sidebar:
-    st.sidebar.image("main_bg.jpg", use_column_width=True)
+    st.sidebar.image("main_bg.png", use_column_width=True)
     st.title("Selection Wizard")
     if st.button("🔄 NEW SEARCH / RESET"):
         st.rerun()
