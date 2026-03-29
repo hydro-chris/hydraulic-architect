@@ -6,11 +6,26 @@ import os
 st.set_page_config(page_title="Hydraulic Architect", layout="wide", initial_sidebar_state="expanded")
 
 # Custom CSS to make it look professional
-st.markdown("""
+# Custom CSS for a Full-Page Background
+st.markdown(f"""
     <style>
-    .main { background-color: #1e1e26; color: white; }
-    .stSelectbox label { color: #ff3333 !important; font-weight: bold; }
-    .stButton>button { width: 100%; border-radius: 5px; height: 3em; background-color: #2c3e50; color: white; }
+    .stApp {{
+        background-image: url("https://raw.githubusercontent.com/hydro-chris/hydraulic-architect/main/main_bg.png");
+        background-attachment: fixed;
+        background-size: cover;
+    }}
+    
+    /* This makes the "Results" and "Guides" area slightly see-through so you can see the background */
+    [data-testid="stVerticalBlock"] {{
+        background-color: rgba(30, 30, 38, 0.7); 
+        padding: 20px;
+        border-radius: 10px;
+    }}
+    
+    /* Keep the sidebar solid so it's readable */
+    [data-testid="stSidebar"] {{
+        background-color: #1e1e26;
+    }}
     </style>
     """, unsafe_allow_html=True)
 
@@ -27,7 +42,7 @@ df = load_data()
 
 # 3. Sidebar: The Selection Wizard
 with st.sidebar:
-    st.sidebar.image("main_bg.png", use_column_width=True)
+  
     st.title("Selection Wizard")
     if st.button("🔄 NEW SEARCH / RESET"):
         st.rerun()
